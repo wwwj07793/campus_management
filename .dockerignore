@@ -1,0 +1,12 @@
+.venv
+__pycache__
+.pytest_cache
+.git
+.vscode
+*.pyc
+*.pyo
+*.log
+*.pid
+campus_management_codex_modified_snapshot_*.zip
+_codex_modified_snapshot_*
+data_files

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园数据管理系统</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app" id="app">
+    <section class="login-screen" id="loginScreen">
+      <div class="login-copy">
+        <p class="eyebrow">Campus Management Console</p>
+        <h1>校园管理系统</h1>
+        <p>
+          校园数据管理与智能分析系统。现在登录会经过后端认证，不同身份进入后会看到不同模块和操作权限。
+        </p>
+        <div class="login-feature-grid">
+          <div>
+            <strong>学生身份</strong>
+            <span>查看课程、成绩、选课状态</span>
+          </div>
+          <div>
+            <strong>教师身份</strong>
+            <span>管理课程、成绩与统计分析</span>
+          </div>
+          <div>
+            <strong>管理员身份</strong>
+            <span>拥有完整后台管理权限</span>
+          </div>
+        </div>
+      </div>
+
+      <form class="login-card" id="loginForm">
+        <div class="login-card-header">
+          <p class="eyebrow">Login</p>
+          <h2>登录控制台</h2>
+        </div>
+
+        <div class="role-toggle" role="radiogroup" aria-label="选择登录身份">
+          <label class="role-option is-active" id="studentRoleLabel">
+            <input type="radio" name="role" value="student" checked>
+            <span>学生</span>
+          </label>
+          <label class="role-option" id="teacherRoleLabel">
+            <input type="radio" name="role" value="teacher">
+            <span>教师</span>
+          </label>
+          <label class="role-option" id="adminRoleLabel">
+            <input type="radio" name="role" value="admin">
+            <span>管理员</span>
+          </label>
+        </div>
+
+        <div class="field">
+          <label for="usernameInput">用户名</label>
+          <input id="usernameInput" type="text" autocomplete="username" placeholder="student / teacher / admin">
+        </div>
+
+        <div class="field">
+          <label for="passwordInput">密码</label>
+          <input id="passwordInput" type="password" autocomplete="current-password" placeholder="student123 / teacher123 / admin123">
+        </div>
+
+        <p class="login-error" id="loginError" aria-live="polite"></p>
+        <button class="primary-action login-submit" type="submit">进入系统</button>
+      </form>
+    </section>
+
+    <section class="workspace is-hidden" id="workspace">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">CM</div>
+          <div>
+            <strong>校园管理</strong>
+            <span>后台控制台</span>
+          </div>
+        </div>
+
+        <nav class="nav-list" id="navList" aria-label="主导航"></nav>
+
+        <div class="user-card" id="userCard"></div>
+        <button class="exit-system" id="exitSystemButton">退出登录</button>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow" id="currentModuleLabel">Dashboard</p>
+            <h2 id="pageTitle">总览</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="subtle-button" id="exitModuleButton">退出当前模块</button>
+            <button class="primary-action small" id="quickCreateButton">新建记录</button>
+          </div>
+        </header>
+
+        <section class="content-grid" id="content"></section>
+      </main>
+    </section>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
