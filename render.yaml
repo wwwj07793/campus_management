@@ -9,10 +9,8 @@ services:
       - key: ENVIRONMENT
         value: production
       - key: INIT_DB_ON_STARTUP
-        value: "false"
+        value: "true"
       - key: CAMPUS_AUTH_SECRET
         generateValue: true
       - key: DATABASE_URL
-        sync: false
-      - key: CORS_ORIGINS
-        sync: false
+        value: sqlite:///./campus.db
